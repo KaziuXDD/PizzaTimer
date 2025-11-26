@@ -79,8 +79,12 @@
         const now = new Date();
 
         const target = new Date();
-        target.setDate(now.getDate() + 1);
         target.setHours(19, 0, 0, 0);
+
+        // jeśli jest po 19:00, przełącz na jutro
+        if (now > target) {
+            target.setDate(target.getDate() + 1);
+        }
 
         const diff = target - now;
 
@@ -122,3 +126,4 @@
 
 </body>
 </html>
+
